@@ -1,12 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
     color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 header {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #222;
+    color: white;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.intro {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: slideIn 2s ease-in-out;
+}
+
+.content {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
     background-color: #333;
     color: white;
-    padding: 20px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 250px;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #222;
+    color: white;
+}
+
+footer a {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
