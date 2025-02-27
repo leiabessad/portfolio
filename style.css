@@ -9,6 +9,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Conteneur des icônes (grille) */
 #desktop {
     position: relative;
     width: 100vw;
@@ -17,57 +18,92 @@ body {
     background-image: url('fondecran.jpg');
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-.icon {
-    position: absolute;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
+/* Conteneur des vignettes, en utilisant CSS Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /* Grille responsive */
+    gap: 20px;  /* Espacement entre les vignettes */
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;  /* Limite la largeur de la grille */
 }
 
-.icon img {
-    width: 100px;
-    height: 100px;
+/* Vignette individuelle */
+.icon {
+    position: absolute;  /* Positionnement absolu pour déplacer les vignettes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+    width: 120px;  /* Largeur fixe */
+    height: 200px;  /* Hauteur fixe */
+    pointer-events: all;  /* Permet le déplacement avec les événements de souris */
 }
+
+
+
+
+.icon img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 150px;  /* Empêche l'image de dépasser la taille de la vignette */
+}
+
+
 
 .icon p {
     margin-top: 10px;
-    color: white;
+    color: #333;
     font-weight: bold;
+    text-align: center;
+    font-size: 14px;  /* Texte plus petit pour que tout tienne */
+    padding: 5px;
 }
 
-#modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 700px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: none;
+/* Effet au survol de la vignette */
+.icon:hover {
+    transform: scale(1.05);  /* Agrandissement léger au survol */
 }
 
-#modal-images img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+/* Styles spécifiques aux petits écrans (responsive) */
+
+/* Pour les écrans moyens (tablettes et petits écrans de bureau) */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));  /* Colonnes plus petites */
+    }
+
+    .icon {
+        height: 180px;  /* Moins de hauteur pour les écrans moyens */
+        max-width: 120px;
+    }
 }
 
-#close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-    cursor: pointer;
-}
+/* Pour les très petits écrans (smartphones) */
+@media screen and (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;  /* Une seule colonne sur les petits écrans */
+    }
 
-.hidden {
-    display: none;
+    .icon {
+        height: 160px;  /* Moins de hauteur pour les écrans très petits */
+        max-width: 100%;
+    }
+
+    .icon p {
+        font-size: 12px;  /* Texte encore plus petit */
+    }
 }
