@@ -6,97 +6,68 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #eb1d9c;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden;
+    background-color: #f0f0f0;
 }
 
-header {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #222;
-    color: white;
+#desktop {
     position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f4f4f4;
+    background-image: url('fondecran.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.intro {
-    font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-    animation: slideIn 2s ease-in-out;
-}
-
-.content {
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.projects {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.project-card {
-    background-color: #333;
-    color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
+.icon {
+    position: absolute;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
 }
 
-.project-card h3 {
-    font-size: 1.5rem;
+.icon img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.icon p {
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 700px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+#modal-images img {
+    width: 100%;
+    height: auto;
     margin-bottom: 15px;
 }
 
-.project-card:hover {
-    transform: scale(1.1);
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #222;
-    color: white;
-}
-
-footer a {
-    color: #f0f0f0;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.hidden {
+    display: none;
 }
