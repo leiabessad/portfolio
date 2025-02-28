@@ -24,16 +24,6 @@ body {
     overflow: hidden;
 }
 
-/* Conteneur des vignettes, en utilisant CSS Grid */
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /* Grille responsive */
-    gap: 20px;  /* Espacement entre les vignettes */
-    padding: 20px;
-    width: 100%;
-    max-width: 1200px;  /* Limite la largeur de la grille */
-}
-
 /* Vignette individuelle */
 .icon {
     position: absolute;  /* Positionnement absolu pour déplacer les vignettes */
@@ -41,42 +31,81 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: none;
     border-radius: 10px;
     overflow: hidden;
-    background-color: #fff;
+    background-color: none;
     transition: transform 0.2s ease-in-out;
     width: 120px;  /* Largeur fixe */
     height: 200px;  /* Hauteur fixe */
-    pointer-events: all;  /* Permet le déplacement avec les événements de souris */
 }
 
-
-
-
 .icon img {
-    display: block;
     width: 100%;
     height: auto;
     border-radius: 10px;
     max-height: 150px;  /* Empêche l'image de dépasser la taille de la vignette */
 }
 
+.icon .hover-image {
+    position: absolute;
+    display: none;  /* Par défaut, cachée */
+    pointer-events: none; /* Empêche l'image de capturer des événements souris */
+    z-index: 9999;  /* S'assurer que l'image est au-dessus des autres éléments */
+    transition: transform 0.1s ease-out;  /* Animation douce */
+}
 
+.icon .hover-image img {
+    width: 100px;  /* Ajuster la taille de l'image de survol */
+    height: auto;
+    pointer-events: none;  /* Empêche l'image de capturer des événements souris */
+}
+
+
+.icon:hover .hover-image {
+    display: block;
+    transform: translate(-50%, -50%);  /* Centrer l'image par rapport à la position de la souris */
+}
 
 .icon p {
-    margin-top: 10px;
+    margin-top: 5px;
     color: #333;
     font-weight: bold;
     text-align: center;
     font-size: 14px;  /* Texte plus petit pour que tout tienne */
     padding: 5px;
+    min-width: 150px; /* Ajuste cette valeur selon la taille du texte souhaitée */
+    white-space: nowrap;
+    display: inline-block;  
+    overflow: visible;     /* Permet au texte de dépasser si besoin */
 }
 
 /* Effet au survol de la vignette */
 .icon:hover {
     transform: scale(1.05);  /* Agrandissement léger au survol */
 }
+
+/* Modale */
+#modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 700px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+
 
 /* Styles spécifiques aux petits écrans (responsive) */
 
@@ -107,3 +136,9 @@ body {
         font-size: 12px;  /* Texte encore plus petit */
     }
 }
+
+
+
+
+
+
