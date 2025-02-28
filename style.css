@@ -9,24 +9,29 @@ body {
     background-color: #f0f0f0;
 }
 
+body, #desktop {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Empêche l'apparition de barres de défilement */
+}
+
 /* Conteneur des icônes (grille) */
 #desktop {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100vh;  /* Hauteur complète de la fenêtre */
     background-color: #f4f4f4;
     background-image: url('fondecran.jpg');
-    background-size: cover;
+    background-size: cover;  /* Prend tout l'écran sans déformer */
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    overflow: hidden;  /* Empêche le défilement si l'image est plus grande */
 }
+
 
 /* Vignette individuelle */
 .icon {
-    position: absolute;  /* Positionnement absolu pour déplacer les vignettes */
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,53 +41,61 @@ body {
     overflow: hidden;
     background-color: none;
     transition: transform 0.2s ease-in-out;
-    width: 120px;  /* Largeur fixe */
-    height: 200px;  /* Hauteur fixe */
+    width: 120px;
+    height: 200px;
 }
 
+
+
+/* Image à l'intérieur de la vignette */
 .icon img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    max-height: 150px;  /* Empêche l'image de dépasser la taille de la vignette */
+    max-height: 150px;
 }
 
-.icon .hover-image {
-    position: absolute;
-    display: none;  /* Par défaut, cachée */
-    pointer-events: none; /* Empêche l'image de capturer des événements souris */
-    z-index: 9999;  /* S'assurer que l'image est au-dessus des autres éléments */
-    transition: transform 0.1s ease-out;  /* Animation douce */
-}
-
-.icon .hover-image img {
-    width: 100px;  /* Ajuster la taille de l'image de survol */
-    height: auto;
-    pointer-events: none;  /* Empêche l'image de capturer des événements souris */
-}
-
-
-.icon:hover .hover-image {
-    display: block;
-    transform: translate(-50%, -50%);  /* Centrer l'image par rapport à la position de la souris */
-}
-
+/* Texte à l'intérieur de la vignette */
 .icon p {
     margin-top: 5px;
     color: #333;
     font-weight: bold;
     text-align: center;
-    font-size: 14px;  /* Texte plus petit pour que tout tienne */
+    font-size: 14px;
     padding: 5px;
-    min-width: 150px; /* Ajuste cette valeur selon la taille du texte souhaitée */
+    min-width: 150px;
     white-space: nowrap;
-    display: inline-block;  
-    overflow: visible;     /* Permet au texte de dépasser si besoin */
+    display: inline-block;
+    overflow: visible;
 }
 
-/* Effet au survol de la vignette */
+/* Effet de survol de la vignette */
 .icon:hover {
-    transform: scale(1.05);  /* Agrandissement léger au survol */
+    transform: scale(1.05);
+}
+
+/* Image de survol */
+.icon .hover-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease-out;
+}
+
+
+.icon:hover .hover-image {
+    display: block;  /* Afficher l'image lorsque la souris survole la vignette */
+}
+
+/* Taille de l'image de survol */
+.icon .hover-image img {
+    width: 100px;  /* Ajuste la taille de l'image de survol */
+    height: auto;
+    pointer-events: none;
 }
 
 /* Modale */
@@ -105,6 +118,11 @@ body {
     display: none;
 }
 
+.Invariants {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
 
 
 /* Styles spécifiques aux petits écrans (responsive) */
@@ -136,9 +154,3 @@ body {
         font-size: 12px;  /* Texte encore plus petit */
     }
 }
-
-
-
-
-
-
