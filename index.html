@@ -35,6 +35,8 @@
             <p>Ain't Your "Mayo"</p>
         </div>
 
+      
+
         <div class="icon" data-project="project3">
             <img src="photo/vignette.png" alt="Vignette 3">
             <div class="hover-image">
@@ -43,18 +45,25 @@
             <p>Steinkrebse</p>
         </div>
 
-        <div class="icon" data-project="Project">
+        <div class="icon" id="corbeille">
             <img src="photo/corbeille.png" alt="Corbeille">
             <p>Corbeille</p>
         </div>
 
 
-        <div class="Invariant" id="Invariant">
-            <img src="photo/contact.png" alt="Contact">
-            <p>Contactez-moi</p>
-        </div>
+        <div id="invariant-container">
+            <div class="Invariant">
+                <img src="photo/contact.png" alt="Contact">
+                <p>Contactez-moi</p>
+            </div>
         
-        <!-- Fenêtre modale (apparaît quand on double-clique sur une vignette) -->
+            <div class="Invariant">
+                <img src="photo/music.png" alt="Playlist">
+                <p>Playlist</p>
+            </div>
+        </div>
+
+    <!-- Fenêtre modale (apparaît quand on double-clique sur une vignette) -->
         <div id="modal" class="hidden">
             <div class="modal-content">
                 <span id="close">&times;</span>
@@ -68,6 +77,32 @@
         </div>
     </div>
 
+    <!-- 
+        <span id="close" class="close-btn">&times;</span>
+        </div>
+    Bouton de fermeture -->
+
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <span id="close">&times;</span>
+            <div id="modal-images">
+                <img src="photo/hellmann1.png" alt="Aintyourmayo">
+            </div>
+            <div id="modal-description">
+                Si Hellmann’s fait de la vraie mayonnaise, pourquoi continue-t-on de la qualifiée de « mayo » ?
+Avec la campagne Ain’t Your “Mayo” la marque abandonne son étiquette classique afin de faire un rappel sur sa véritable nature, gage d'excellence culinaire.
+Ceux qui ont osé parler sur X de la mayonnaise d'Hellmann’s en utilisant le terme "mayo" sont exposés sur un billboard à Times Square. Les internautes apparaissant dessus peuvent disparaître du billboard si ils s’excusent publiquement. Et pour chaque excuse, Hellmann’s enverra un pot « Apology Accepted » en édition limitée . Lorsque chaque personne affichée sur le billboard se sera excusée, l’étiquette d’origine reviendra en magasin. Dorénavant, tout le monde se souviendra qu'il faut appeler la Real Mayonnaise d'Hellmann's par son nom complet.
+Parce qu'Hellmann's ne fait pas de la simple "mayo". Il fait de la vraie mayonnaise.
+                <h2>Mon projet 2</h2>
+                <p>Description du projet 1...</p>
+            </div>
+            <div id="modal-videos">
+                <video src="video/hellmanncase.mp4" alt="hellmanncase"> </video>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+

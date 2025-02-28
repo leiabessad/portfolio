@@ -98,31 +98,106 @@ body, #desktop {
     pointer-events: none;
 }
 
-/* Modale */
-#modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 700px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 1000;
-}
+
 
 .hidden {
     display: none;
 }
 
-.Invariants {
+
+
+
+#modal {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: none;  /* Masquée par défaut */
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 80vh;
+    height: 600px;
+    overflow-y: auto;
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.modal-videos video {
+    width: 100%;  /* Assurez-vous que la vidéo occupe la largeur disponible */
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.modal-images img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+#modal-description p {
+    font-size: 14px;
+    color: #333;
+    margin: 20px 0;
+}
+
+
+
+
+
+
+
+/* Conteneur pour les vignettes Invariant */
+#invariant-container {
+    display: flex;          /* Aligne les éléments sur une seule ligne */
+    gap: 10px;              /* Espace entre chaque image */
+    position: fixed;
     bottom: 20px;
     right: 20px;
 }
+
+/* Invariant individuel */
+.Invariant {
+    width: 100px;  /* Largeur de chaque vignette */
+    height: auto;
+    padding: 5px;
+}
+
+.Invariant img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.Invariant p {
+    font-size: 12px;  
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+
+
+
 
 
 /* Styles spécifiques aux petits écrans (responsive) */
